@@ -16,11 +16,11 @@
 <body>
     <header>
     <nav>
-        <div class="logo">DERUMEN</div>
+        <div class="logo">WeCycle</div>
         <div class="nav-items">
-            <a href="/">Home</a>
-            <a href="/">About</a>
-            <a href="/">Contact Us</a>
+            <a href="/">My Calendar</a>
+            <a href="/">Nutrition Log</a>
+            <a href="/">Sleep & Energy</a>
         </div>
     </nav>
 </header>
@@ -44,10 +44,8 @@
                   {% if api == "oops! There was an error" %}
                   <div class = "alert alert-warning"> Oh no! something went wrong.Please try again in sometime. </div>
                   {%else%}
-                  <h1>{{api.0.name | capfirst}} has a total of <strong> {{api.0.calories}} Calories</strong>
-                    {%if api.0.calories > 300%}
-                     <img src="{% static 'images/shocked.png' %}" class="img-responsive" />
-                     {%endif%}
+                  <h1>Here are the nutrional values for <strong>{{api.0.name | capfirst}}</strong>
+                     <img src="{% static 'images/wecyclebg2.png' %}" class="img-responsive" />
                   </h1>
                         {%if api.0.sodium_mg > 1000%}
                       <div class="alert alert-danger d-flex align-items-center mt-3" role="alert">
@@ -83,14 +81,13 @@
                         <li>Total Fat: <span class="float-end">{{api.0.fat_saturated_g}}</span></li>
                         <li>Fiber Content: <span class="float-end">{{api.0.fat_total_g}}</span></li>
                         <li>Potassium <span class="float-end">{{api.0.potassium_mg}}</span></li>
-                        <li>Protein: <span class="float-end">{{api.0.protein_g}}</span></li>
                         <li>Sodium:<span class="float-end">{{api.0.sodium_mg}}</span></li>
                         <li>Sugar: <span class="float-end">{{api.0.sugar_g}}</span></li>
                     </ul>
                 </div> 
                 <div class="col-md-6 mb-3 mt-5">
                     <div class="main-sec-Title">
-                        <h3><span>To burn {{api.0.calories}} Calories you will have to</span></h3>
+                        <h3><span>Burning Calories from a <strong>{{api.0.name}}</strong> you will need to</span></h3>
                     </div>
                     <div class="row">
                     <div class="rightImgContainer col-md-2">
@@ -149,6 +146,30 @@
         </div>
        
     </div>
+    <script>
+        window.embeddedChatbotConfig = {
+        chatbotId: "o61WgX-VHD-ke7gpSLnU1",
+        domain: "www.chatbase.co"
+        }
+        </script>
+        <script
+        src="https://www.chatbase.co/embed.min.js"
+        chatbotId="o61WgX-VHD-ke7gpSLnU1"
+        defer>
+        if (footer) {
+              footer.style.display = 'none';
+            }
+
+        </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var footer = document.querySelector('footer');
+                if (footer) {
+                    footer.remove();
+                }
+            });
+        </script>
+        
 
     </section>
     
